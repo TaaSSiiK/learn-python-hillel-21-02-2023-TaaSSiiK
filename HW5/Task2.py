@@ -8,3 +8,24 @@ II. Написати програму що видаляє те що написа
 - Вхідні дані: строка
 - На виході: така ж строка, але видалено всі дужки та те що між ними
 """
+# Вхідні дані
+text = input('Введіть ваш текст: ')
+#
+x = text.find('(')
+y = text.find(')')
+#
+while not y == -1:
+    x = text.find('(')
+    y = text.find(')')
+    # Без "if" текст в кінці виводився б 2 рази
+    # Можна було ще зробити так:
+    #                           if y == -1:
+    #                               break
+    if y != -1:
+        text_start = text[:x]
+        text_end = text[y + 1:]
+        text_start = text_start.strip(' ')
+        text_end = text_end.strip(' ')
+        text = text_start + text_end
+print(text)
+# Дякую за увагу, гарного дня)
